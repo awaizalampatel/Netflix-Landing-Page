@@ -6,7 +6,7 @@ A professional, responsive landing page clone inspired by Netflix's official web
 
 This is a visually stunning landing page that looks and feels like the real Netflix website. It features:
 
-- **Beautiful Hero Section** - A full-screen hero with a background image and call-to-action form
+- **Beautiful Hero Section** - A full-screen hero with a background video and call-to-action form
 - **Interactive Navigation** - A header that changes appearance as you scroll, with a profile dropdown menu
 - **Feature Showcases** - Four compelling sections highlighting Netflix's key features:
   - Watch on your TV
@@ -117,6 +117,7 @@ This project is for educational and portfolio purposes. It is not affiliated wit
 - Design inspired by Netflix's official website
 - Fonts provided by Google Fonts
 - Icons created inline as SVG for optimal performance
+- Visual elements built with CSS gradients (no external image dependencies)
 
 ---
 
