@@ -119,39 +119,45 @@ document.addEventListener('DOMContentLoaded', function() {
     });
 
     // Mobile menu toggle
-    function setupMobileMenu() {
-        var existingBtn = document.querySelector('.mobile-menu-btn');
-        var navLinksContainer = document.getElementById('navLinks');
-        var navLeft = document.querySelector('.nav-left');
+    var mobileMenuBtn = null;
+    var navLinksContainer = document.getElementById('navLinks');
+    var navLeft = document.querySelector('.nav-left');
 
-        if (window.innerWidth <= 1024) {
-            if (!existingBtn && navLeft && navLinksContainer) {
-                var menuBtn = document.createElement('button');
-                menuBtn.className = 'mobile-menu-btn';
-                menuBtn.setAttribute('aria-label', 'Toggle menu');
-                menuBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+    function createMobileButton() {
+        if (mobileMenuBtn) return;
+        mobileMenuBtn = document.createElement('button');
+        mobileMenuBtn.className = 'mobile-menu-btn';
+        mobileMenuBtn.setAttribute('aria-label', 'Toggle menu');
+        mobileMenuBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
+        navLeft.insertBefore(mobileMenuBtn, navLinksContainer);
+        mobileMenuBtn.addEventListener('click', function() {
+            navLinksContainer.classList.toggle('active');
+            mobileMenuBtn.classList.toggle('active');
+        });
+    }
 
-                navLeft.insertBefore(menuBtn, navLinksContainer);
-
-                menuBtn.addEventListener('click', function() {
-                    navLinksContainer.classList.toggle('active');
-                    menuBtn.classList.toggle('active');
-                });
-            }
-        } else {
-            if (existingBtn) {
-                existingBtn.remove();
-            }
-            if (navLinksContainer) {
-                navLinksContainer.classList.remove('active');
-            }
+    function removeMobileButton() {
+        if (mobileMenuBtn) {
+            mobileMenuBtn.remove();
+            mobileMenuBtn = null;
+        }
+        if (navLinksContainer) {
+            navLinksContainer.classList.remove('active');
         }
     }
 
-    setupMobileMenu();
-    window.addEventListener('resize', setupMobileMenu);
+    function handleResize() {
+        if (window.innerWidth <= 1024) {
+            createMobileButton();
+        } else {
+            removeMobileButton();
+        }
+    }
 
-    // Add dynamic styles for spinner and mobile nav
+    handleResize();
+    window.addEventListener('resize', handleResize);
+
+    // Add spinner animation styles
     var style = document.createElement('style');
     style.textContent = '@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}.spinner{animation:spin 1s linear infinite}@media(max-width:1024px){.nav-links{position:fixed;top:60px;left:0;right:0;background-color:rgba(20,20,20,0.98);flex-direction:column;padding:20px;gap:15px;transform:translateY(-100%);opacity:0;visibility:hidden;transition:all 0.3s ease;z-index:999}.nav-links.active{transform:translateY(0);opacity:1;visibility:visible}}';
     document.head.appendChild(style);

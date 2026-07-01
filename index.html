@@ -29,9 +29,8 @@
                     <li><a href="#" class="nav-link">Home</a></li>
                     <li><a href="#tv-shows" class="nav-link">TV Shows</a></li>
                     <li><a href="#movies" class="nav-link">Movies</a></li>
-                    <li><a href="#new-popular" class="nav-link">New & Popular</a></li>
-                    <li><a href="#my-list" class="nav-link">My List</a></li>
-                    <li><a href="#browse-by-languages" class="nav-link">Browse by Languages</a></li>
+                    <li><a href="#devices" class="nav-link">New & Popular</a></li>
+                    <li><a href="#kids" class="nav-link">My List</a></li>
                 </ul>
             </div>
             <div class="nav-right">
@@ -72,11 +71,6 @@
     <section class="hero">
         <div class="hero-bg">
             <div class="hero-bg-poster"></div>
-            <div class="hero-bg-video">
-                <video autoplay muted loop playsinline>
-                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
-                </video>
-            </div>
             <div class="hero-gradient"></div>
         </div>
         <div class="hero-content">
@@ -107,13 +101,14 @@
                 <p class="feature-description">Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
             </div>
             <div class="feature-visual">
-                <div class="tv-container">
-                    <div class="tv-device">
+                <div class="tv-wrapper">
+                    <div class="tv-frame">
                         <div class="tv-screen">
-                            <div class="tv-screen-content" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                            <div class="tv-screen-content"></div>
                         </div>
-                        <div class="tv-stand"></div>
                     </div>
+                    <div class="tv-stand-neck"></div>
+                    <div class="tv-stand-base"></div>
                 </div>
             </div>
         </div>
@@ -125,14 +120,14 @@
                 <p class="feature-description">Save your favorites easily and always have something to watch.</p>
             </div>
             <div class="feature-visual">
-                <div class="download-container">
-                    <div class="download-device">
-                        <div class="download-screen">
-                            <div class="download-screen-content" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                <div class="download-wrapper">
+                    <div class="download-phone">
+                        <div class="download-phone-screen">
+                            <div class="download-phone-content"></div>
                         </div>
                     </div>
                     <div class="download-card">
-                        <div class="download-card-thumb" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                        <div class="download-card-thumb"></div>
                         <div class="download-card-text">
                             <p class="download-card-title">Stranger Things</p>
                             <p class="download-card-status">Downloading...</p>
@@ -143,7 +138,7 @@
                                 <circle cx="50" cy="50" r="45" class="download-circle-progress"></circle>
                             </svg>
                             <svg class="download-check" viewBox="0 0 24 24" fill="none">
-                                <path d="M5 13l4 4L19 7" stroke="#4CAF50" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M5 13l4 4L19 7" stroke="#46d369" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"></path>
                             </svg>
                         </div>
                     </div>
@@ -152,62 +147,86 @@
         </div>
 
         <!-- Feature 3: Watch everywhere -->
-        <div class="feature-row" id="new-popular">
+        <div class="feature-row" id="devices">
             <div class="feature-content">
                 <h2 class="feature-title">Watch everywhere</h2>
                 <p class="feature-description">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
             </div>
             <div class="feature-visual">
-                <div class="devices-container">
-                    <div class="device device-tv">
-                        <div class="device-screen" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                <div class="multi-devices">
+                    <div class="md-tv">
+                        <div class="md-tv-screen"></div>
                     </div>
-                    <div class="device device-laptop">
-                        <div class="device-screen" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);"></div>
+                    <div class="md-laptop">
+                        <div class="md-laptop-screen"></div>
+                        <div class="md-laptop-base"></div>
                     </div>
-                    <div class="device device-tablet">
-                        <div class="device-screen" style="background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);"></div>
+                    <div class="md-tablet">
+                        <div class="md-tablet-screen"></div>
                     </div>
-                    <div class="device device-phone">
-                        <div class="device-screen" style="background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);"></div>
+                    <div class="md-phone">
+                        <div class="md-phone-screen"></div>
+                        <div class="md-phone-notch"></div>
                     </div>
                 </div>
             </div>
         </div>
 
         <!-- Feature 4: Create profiles for kids -->
-        <div class="feature-row feature-row-reverse" id="my-list">
+        <div class="feature-row feature-row-reverse" id="kids">
             <div class="feature-content">
                 <h2 class="feature-title">Create profiles for kids</h2>
                 <p class="feature-description">Send kids on adventures with their favorite characters in a space made just for them — free with your membership.</p>
             </div>
             <div class="feature-visual">
-                <div class="kids-container">
-                    <div class="kids-characters">
-                        <div class="kid-character" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
-                            <svg viewBox="0 0 80 80" fill="none">
-                                <circle cx="40" cy="30" r="15" fill="rgba(255,255,255,0.3)"/>
-                                <ellipse cx="40" cy="65" rx="20" ry="15" fill="rgba(255,255,255,0.3)"/>
-                            </svg>
-                        </div>
-                        <div class="kid-character" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
-                            <svg viewBox="0 0 80 80" fill="none">
-                                <circle cx="40" cy="30" r="15" fill="rgba(255,255,255,0.3)"/>
-                                <ellipse cx="40" cy="65" rx="20" ry="15" fill="rgba(255,255,255,0.3)"/>
-                            </svg>
-                        </div>
-                        <div class="kid-character" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
-                            <svg viewBox="0 0 80 80" fill="none">
-                                <circle cx="40" cy="30" r="15" fill="rgba(255,255,255,0.3)"/>
-                                <ellipse cx="40" cy="65" rx="20" ry="15" fill="rgba(255,255,255,0.3)"/>
-                            </svg>
-                        </div>
-                        <div class="kid-character" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
-                            <svg viewBox="0 0 80 80" fill="none">
-                                <circle cx="40" cy="30" r="15" fill="rgba(255,255,255,0.3)"/>
-                                <ellipse cx="40" cy="65" rx="20" ry="15" fill="rgba(255,255,255,0.3)"/>
-                            </svg>
-                        </div>
+                <div class="kids-profiles">
+                    <div class="kid-profile kid-1">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="50" fill="#FF6B6B"/>
+                            <circle cx="50" cy="38" r="16" fill="#FFE66D"/>
+                            <path d="M50 56c-15 0-28 8-28 20v6c0 2 2 4 4 4h48c2 0 4-2 4-4v-6c0-12-13-20-28-20z" fill="#FFE66D"/>
+                            <circle cx="42" cy="35" r="3" fill="#333"/>
+                            <circle cx="58" cy="35" r="3" fill="#333"/>
+                            <path d="M44 43c0 0 3 5 6 5s6-5 6-5" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M30 28c0-8 8-16 20-16s20 8 20 16" stroke="#FF6B6B" stroke-width="0" fill="#E50914"/>
+                            <ellipse cx="50" cy="20" rx="14" ry="8" fill="#E50914"/>
+                        </svg>
+                    </div>
+                    <div class="kid-profile kid-2">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="50" fill="#4ECDC4"/>
+                            <circle cx="50" cy="38" r="16" fill="#FFE66D"/>
+                            <path d="M50 56c-15 0-28 8-28 20v6c0 2 2 4 4 4h48c2 0 4-2 4-4v-6c0-12-13-20-28-20z" fill="#FFE66D"/>
+                            <circle cx="42" cy="35" r="3" fill="#333"/>
+                            <circle cx="58" cy="35" r="3" fill="#333"/>
+                            <path d="M44 43c0 0 3 5 6 5s6-5 6-5" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M30 28c0-8 8-16 20-16s20 8 20 16" stroke="#4ECDC4" stroke-width="0" fill="#45B7D1"/>
+                            <ellipse cx="50" cy="20" rx="14" ry="8" fill="#45B7D1"/>
+                        </svg>
+                    </div>
+                    <div class="kid-profile kid-3">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="50" fill="#96CEB4"/>
+                            <circle cx="50" cy="38" r="16" fill="#FFE66D"/>
+                            <path d="M50 56c-15 0-28 8-28 20v6c0 2 2 4 4 4h48c2 0 4-2 4-4v-6c0-12-13-20-28-20z" fill="#FFE66D"/>
+                            <circle cx="42" cy="35" r="3" fill="#333"/>
+                            <circle cx="58" cy="35" r="3" fill="#333"/>
+                            <path d="M44 43c0 0 3 5 6 5s6-5 6-5" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M30 28c0-8 8-16 20-16s20 8 20 16" stroke="#96CEB4" stroke-width="0" fill="#2ECC71"/>
+                            <ellipse cx="50" cy="20" rx="14" ry="8" fill="#2ECC71"/>
+                        </svg>
+                    </div>
+                    <div class="kid-profile kid-4">
+                        <svg viewBox="0 0 100 100" fill="none">
+                            <circle cx="50" cy="50" r="50" fill="#DDA0DD"/>
+                            <circle cx="50" cy="38" r="16" fill="#FFE66D"/>
+                            <path d="M50 56c-15 0-28 8-28 20v6c0 2 2 4 4 4h48c2 0 4-2 4-4v-6c0-12-13-20-28-20z" fill="#FFE66D"/>
+                            <circle cx="42" cy="35" r="3" fill="#333"/>
+                            <circle cx="58" cy="35" r="3" fill="#333"/>
+                            <path d="M44 43c0 0 3 5 6 5s6-5 6-5" stroke="#333" stroke-width="2" fill="none" stroke-linecap="round"/>
+                            <path d="M30 28c0-8 8-16 20-16s20 8 20 16" stroke="#DDA0DD" stroke-width="0" fill="#9B59B6"/>
+                            <ellipse cx="50" cy="20" rx="14" ry="8" fill="#9B59B6"/>
+                        </svg>
                     </div>
                 </div>
             </div>
@@ -215,14 +234,14 @@
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section" id="browse-by-languages">
+    <section class="faq-section" id="faq">
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="faq-list">
             <div class="faq-item">
                 <button class="faq-question" aria-expanded="false">
                     <span>What is Netflix?</span>
                     <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M19 13H5v-2h14v2z" fill="currentColor"></path>
+                        <path d="M12 4v16m-8-8h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </button>
                 <div class="faq-answer">
@@ -234,7 +253,7 @@
                 <button class="faq-question" aria-expanded="false">
                     <span>How much does Netflix cost?</span>
                     <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M19 13H5v-2h14v2z" fill="currentColor"></path>
+                        <path d="M12 4v16m-8-8h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </button>
                 <div class="faq-answer">
@@ -245,7 +264,7 @@
                 <button class="faq-question" aria-expanded="false">
                     <span>Where can I watch?</span>
                     <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M19 13H5v-2h14v2z" fill="currentColor"></path>
+                        <path d="M12 4v16m-8-8h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </button>
                 <div class="faq-answer">
@@ -257,7 +276,7 @@
                 <button class="faq-question" aria-expanded="false">
                     <span>How do I cancel?</span>
                     <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M19 13H5v-2h14v2z" fill="currentColor"></path>
+                        <path d="M12 4v16m-8-8h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </button>
                 <div class="faq-answer">
@@ -268,7 +287,7 @@
                 <button class="faq-question" aria-expanded="false">
                     <span>What can I watch on Netflix?</span>
                     <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M19 13H5v-2h14v2z" fill="currentColor"></path>
+                        <path d="M12 4v16m-8-8h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </button>
                 <div class="faq-answer">
@@ -279,7 +298,7 @@
                 <button class="faq-question" aria-expanded="false">
                     <span>Is Netflix good for kids?</span>
                     <svg class="faq-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M19 13H5v-2h14v2z" fill="currentColor"></path>
+                        <path d="M12 4v16m-8-8h16" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
                     </svg>
                 </button>
                 <div class="faq-answer">
