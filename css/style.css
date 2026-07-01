@@ -115,10 +115,15 @@ img {
     align-items: center;
 }
 
-.netflix-logo {
-    width: 92px;
-    height: 25px;
-    fill: var(--netflix-red);
+.netflix-logo-text {
+    font-family: 'Bebas Neue', 'Impact', Arial Black, sans-serif;
+    font-size: 26px;
+    font-weight: 400;
+    color: var(--netflix-red);
+    letter-spacing: 4px;
+    line-height: 1;
+    text-transform: uppercase;
+    user-select: none;
 }
 
 .nav-links {
@@ -1112,8 +1117,9 @@ img {
         height: 60px;
     }
 
-    .netflix-logo {
-        width: 80px;
+    .netflix-logo-text {
+        font-size: 22px;
+        letter-spacing: 3px;
     }
 
     .header {
