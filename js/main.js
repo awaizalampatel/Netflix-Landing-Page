@@ -1,31 +1,29 @@
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
     // Header scroll effect
-    const header = document.querySelector('.header');
-    let lastScrollY = window.scrollY;
+    var header = document.getElementById('header');
 
-    window.addEventListener('scroll', () => {
-        const currentScrollY = window.scrollY;
-
-        if (currentScrollY > 50) {
+    function handleScroll() {
+        if (window.scrollY > 50) {
             header.classList.add('scrolled');
         } else {
             header.classList.remove('scrolled');
         }
+    }
 
-        lastScrollY = currentScrollY;
-    });
+    window.addEventListener('scroll', handleScroll);
+    handleScroll();
 
     // FAQ Accordion
-    const faqItems = document.querySelectorAll('.faq-item');
+    var faqItems = document.querySelectorAll('.faq-item');
 
-    faqItems.forEach(item => {
-        const question = item.querySelector('.faq-question');
+    faqItems.forEach(function(item) {
+        var question = item.querySelector('.faq-question');
 
-        question.addEventListener('click', () => {
-            const isActive = item.classList.contains('active');
+        question.addEventListener('click', function() {
+            var isActive = item.classList.contains('active');
 
             // Close all FAQ items
-            faqItems.forEach(faqItem => {
+            faqItems.forEach(function(faqItem) {
                 faqItem.classList.remove('active');
                 faqItem.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
             });
@@ -39,37 +37,26 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Email form submission
-    const emailForms = document.querySelectorAll('.email-form');
+    var emailForms = document.querySelectorAll('.email-form');
 
-    emailForms.forEach(form => {
-        form.addEventListener('submit', (e) => {
+    emailForms.forEach(function(form) {
+        form.addEventListener('submit', function(e) {
             e.preventDefault();
-            const emailInput = form.querySelector('input[type="email"]');
-            const email = emailInput.value.trim();
+            var emailInput = form.querySelector('input[type="email"]');
+            var email = emailInput.value.trim();
 
             if (email) {
-                // Simulate form submission
-                const button = form.querySelector('button[type="submit"]');
-                const originalText = button.innerHTML;
+                var button = form.querySelector('button[type="submit"]');
+                var originalHTML = button.innerHTML;
 
-                button.innerHTML = `
-                    <svg width="24" height="24" viewBox="0 0 24 24" class="spinner">
-                        <circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="30 70" stroke-linecap="round"/>
-                    </svg>
-                    Loading...
-                `;
+                button.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" class="spinner"><circle cx="12" cy="12" r="10" fill="none" stroke="currentColor" stroke-width="3" stroke-dasharray="30 70" stroke-linecap="round"/></svg> Loading...';
                 button.disabled = true;
 
-                setTimeout(() => {
-                    button.innerHTML = `
-                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                            <path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
-                        </svg>
-                        Success!
-                    `;
+                setTimeout(function() {
+                    button.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M5 13l4 4L19 7" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg> Success!';
 
-                    setTimeout(() => {
-                        button.innerHTML = originalText;
+                    setTimeout(function() {
+                        button.innerHTML = originalHTML;
                         button.disabled = false;
                         emailInput.value = '';
                     }, 2000);
@@ -79,116 +66,93 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // Smooth scroll for navigation links
-    const navLinks = document.querySelectorAll('.nav-link');
+    var navLinks = document.querySelectorAll('.nav-link');
 
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            const href = link.getAttribute('href');
+    navLinks.forEach(function(link) {
+        link.addEventListener('click', function(e) {
+            var href = link.getAttribute('href');
 
-            if (href.startsWith('#') && href !== '#') {
-                e.preventDefault();
-                const target = document.querySelector(href);
+            if (href && href.startsWith('#') && href.length > 1) {
+                var target = document.querySelector(href);
 
                 if (target) {
+                    e.preventDefault();
                     target.scrollIntoView({
                         behavior: 'smooth',
                         block: 'start'
                     });
+
+                    // Close mobile menu if open
+                    var navLinksContainer = document.getElementById('navLinks');
+                    var mobileMenuBtn = document.querySelector('.mobile-menu-btn');
+                    if (navLinksContainer) {
+                        navLinksContainer.classList.remove('active');
+                    }
+                    if (mobileMenuBtn) {
+                        mobileMenuBtn.classList.remove('active');
+                    }
                 }
             }
         });
     });
 
     // Intersection Observer for fade-in animations
-    const observerOptions = {
-        threshold: 0.1,
+    var observerOptions = {
+        threshold: 0.15,
         rootMargin: '0px 0px -50px 0px'
     };
 
-    const observer = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
+    var observer = new IntersectionObserver(function(entries) {
+        entries.forEach(function(entry) {
             if (entry.isIntersecting) {
-                entry.target.classList.add('fade-in-up');
+                entry.target.classList.add('visible');
                 observer.unobserve(entry.target);
             }
         });
     }, observerOptions);
 
     // Observe feature rows and FAQ items
-    const animatedElements = document.querySelectorAll('.feature-row, .faq-item');
-    animatedElements.forEach(el => {
-        el.style.opacity = '0';
+    var animatedElements = document.querySelectorAll('.feature-row, .faq-item');
+    animatedElements.forEach(function(el) {
+        el.classList.add('fade-in-up');
         observer.observe(el);
     });
 
-    // Mobile menu toggle (for future implementation)
-    const createMobileMenu = () => {
-        if (window.innerWidth <= 1024) {
-            const navLeft = document.querySelector('.nav-left');
-            const navLinksContainer = document.querySelector('.nav-links');
+    // Mobile menu toggle
+    function setupMobileMenu() {
+        var existingBtn = document.querySelector('.mobile-menu-btn');
+        var navLinksContainer = document.getElementById('navLinks');
+        var navLeft = document.querySelector('.nav-left');
 
-            if (!document.querySelector('.mobile-menu-btn')) {
-                const menuBtn = document.createElement('button');
+        if (window.innerWidth <= 1024) {
+            if (!existingBtn && navLeft && navLinksContainer) {
+                var menuBtn = document.createElement('button');
                 menuBtn.className = 'mobile-menu-btn';
-                menuBtn.innerHTML = `
-                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none">
-                        <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    </svg>
-                `;
                 menuBtn.setAttribute('aria-label', 'Toggle menu');
+                menuBtn.innerHTML = '<svg width="24" height="24" viewBox="0 0 24 24" fill="none"><path d="M3 6h18M3 12h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg>';
 
                 navLeft.insertBefore(menuBtn, navLinksContainer);
 
-                menuBtn.addEventListener('click', () => {
+                menuBtn.addEventListener('click', function() {
                     navLinksContainer.classList.toggle('active');
                     menuBtn.classList.toggle('active');
                 });
             }
+        } else {
+            if (existingBtn) {
+                existingBtn.remove();
+            }
+            if (navLinksContainer) {
+                navLinksContainer.classList.remove('active');
+            }
         }
-    };
+    }
 
-    createMobileMenu();
-    window.addEventListener('resize', createMobileMenu);
+    setupMobileMenu();
+    window.addEventListener('resize', setupMobileMenu);
 
-    // Add spinner animation CSS
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes spin {
-            from { transform: rotate(0deg); }
-            to { transform: rotate(360deg); }
-        }
-        .spinner {
-            animation: spin 1s linear infinite;
-        }
-        .mobile-menu-btn {
-            display: none;
-            color: white;
-            padding: 8px;
-        }
-        @media (max-width: 1024px) {
-            .mobile-menu-btn {
-                display: flex;
-            }
-            .nav-links {
-                position: fixed;
-                top: 60px;
-                left: 0;
-                right: 0;
-                background-color: rgba(20, 20, 20, 0.98);
-                flex-direction: column;
-                padding: 20px;
-                gap: 15px;
-                transform: translateY(-100%);
-                opacity: 0;
-                visibility: hidden;
-                transition: all 0.3s ease;
-            }
-            .nav-links.active {
-                transform: translateY(0);
-                opacity: 1;
-                visibility: visible;
-            }
-        }
-    `;
+    // Add dynamic styles for spinner and mobile nav
+    var style = document.createElement('style');
+    style.textContent = '@keyframes spin{from{transform:rotate(0deg)}to{transform:rotate(360deg)}}.spinner{animation:spin 1s linear infinite}@media(max-width:1024px){.nav-links{position:fixed;top:60px;left:0;right:0;background-color:rgba(20,20,20,0.98);flex-direction:column;padding:20px;gap:15px;transform:translateY(-100%);opacity:0;visibility:hidden;transition:all 0.3s ease;z-index:999}.nav-links.active{transform:translateY(0);opacity:1;visibility:visible}}';
     document.head.appendChild(style);
 });

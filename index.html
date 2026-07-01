@@ -13,7 +13,8 @@
 </head>
 <body>
     <!-- Header -->
-    <header class="header">
+    <header class="header" id="header">
+        <div class="header-gradient"></div>
         <nav class="navbar">
             <div class="nav-left">
                 <a href="#" class="logo">
@@ -24,7 +25,7 @@
                         </g>
                     </svg>
                 </a>
-                <ul class="nav-links">
+                <ul class="nav-links" id="navLinks">
                     <li><a href="#" class="nav-link">Home</a></li>
                     <li><a href="#tv-shows" class="nav-link">TV Shows</a></li>
                     <li><a href="#movies" class="nav-link">Movies</a></li>
@@ -46,7 +47,12 @@
                 </button>
                 <div class="profile-menu">
                     <button class="profile-btn" aria-label="Profile">
-                        <img src="https://ih0.redbubble.net/image.554768472.4741/flat,1000x1000,075,f.u1.jpg" alt="Profile" class="profile-img">
+                        <div class="profile-avatar">
+                            <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+                                <rect width="32" height="32" rx="4" fill="#E50914"/>
+                                <text x="16" y="22" text-anchor="middle" fill="white" font-size="16" font-family="Inter, sans-serif" font-weight="600">A</text>
+                            </svg>
+                        </div>
                         <svg width="16" height="16" viewBox="0 0 16 16" class="caret">
                             <path d="M11.5975 5.85876L8.00001 9.45626L4.40251 5.85876L3.34126 6.92001L8.00001 11.5788L12.6588 6.92001L11.5975 5.85876Z" fill="currentColor"></path>
                         </svg>
@@ -65,14 +71,19 @@
     <!-- Hero Section -->
     <section class="hero">
         <div class="hero-bg">
-            <img src="https://assets.nflxext.com/ffe/siteui/vlv3/ab184aad-36c7-48a8-ba55-a1b1c052b298/23c83fbb-6b1c-4e99-a6e4-52b7c477df3a/US-en-20240624-POP_SIGNUP_TWO_WEEKS-perspective_WEB_5ee6f63e-83a4-48c3-a974-152f8a944e71_large.jpg" alt="" class="hero-bg-img">
+            <div class="hero-bg-poster"></div>
+            <div class="hero-bg-video">
+                <video autoplay muted loop playsinline>
+                    <source src="https://www.w3schools.com/html/mov_bbb.mp4" type="video/mp4">
+                </video>
+            </div>
             <div class="hero-gradient"></div>
         </div>
         <div class="hero-content">
             <h1 class="hero-title">Unlimited movies, TV shows, and more</h1>
             <p class="hero-subtitle">Starts at $6.99. Cancel anytime.</p>
             <p class="hero-cta-text">Ready to watch? Enter your email to create or restart your membership.</p>
-            <form class="email-form">
+            <form class="email-form hero-form">
                 <div class="form-group">
                     <input type="email" id="email" required placeholder=" ">
                     <label for="email">Email address</label>
@@ -90,29 +101,38 @@
     <!-- Features Section -->
     <section class="features">
         <!-- Feature 1: Enjoy on your TV -->
-        <div class="feature-row">
+        <div class="feature-row" id="tv-shows">
             <div class="feature-content">
                 <h2 class="feature-title">Enjoy on your TV</h2>
                 <p class="feature-description">Watch on Smart TVs, Playstation, Xbox, Chromecast, Apple TV, Blu-ray players, and more.</p>
             </div>
             <div class="feature-visual">
                 <div class="tv-container">
-                    <img src="https://assets.nflxext.com/ffe/siteui/vlv3/d11c4eec-8187-45ef-b3e8-3e991a8a1503/web/US-en-20240520-TRIFECTA-perspective_3a2e5c5b-14f0-45da-bfc5-b1c8d0d04b63_large.jpg" alt="TV" class="tv-image">
+                    <div class="tv-device">
+                        <div class="tv-screen">
+                            <div class="tv-screen-content" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                        </div>
+                        <div class="tv-stand"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Feature 2: Download your shows -->
-        <div class="feature-row feature-row-reverse">
+        <div class="feature-row feature-row-reverse" id="movies">
             <div class="feature-content">
                 <h2 class="feature-title">Download your shows to watch offline</h2>
                 <p class="feature-description">Save your favorites easily and always have something to watch.</p>
             </div>
             <div class="feature-visual">
                 <div class="download-container">
-                    <img src="https://assets.nflxext.com/ffe/siteui/vlv3/08a06a07-7581-4c97-980f-58e5b4005961/web/US-en-20240527-TRIFECTA-perspective_38a06e1f-1b4a-4cd2-8e3a-3ba1f5e15f2d_large.jpg" alt="Download" class="download-image">
+                    <div class="download-device">
+                        <div class="download-screen">
+                            <div class="download-screen-content" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                        </div>
+                    </div>
                     <div class="download-card">
-                        <img src="https://assets.nflxext.com/ffe/siteui/vlv3/b2c35770-1851-47b4-a0c8-1c0a628a0f11/web/US-en-20240520-TRIFECTA-perspective_4a1d121d-3e75-4f37-8f96-b0f63e6b2b67_large.jpg" alt="" class="download-card-img">
+                        <div class="download-card-thumb" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
                         <div class="download-card-text">
                             <p class="download-card-title">Stranger Things</p>
                             <p class="download-card-status">Downloading...</p>
@@ -132,34 +152,70 @@
         </div>
 
         <!-- Feature 3: Watch everywhere -->
-        <div class="feature-row">
+        <div class="feature-row" id="new-popular">
             <div class="feature-content">
                 <h2 class="feature-title">Watch everywhere</h2>
                 <p class="feature-description">Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
             </div>
             <div class="feature-visual">
                 <div class="devices-container">
-                    <img src="https://assets.nflxext.com/ffe/siteui/vlv3/6e82494e-8184-45f8-ba1c-fb6f81ca1465/web/US-en-20240520-TRIFECTA-perspective_5b9e1e82-c4e2-4632-9b33-fa4f3b4d339d_large.jpg" alt="Devices" class="devices-image">
+                    <div class="device device-tv">
+                        <div class="device-screen" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                    </div>
+                    <div class="device device-laptop">
+                        <div class="device-screen" style="background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);"></div>
+                    </div>
+                    <div class="device device-tablet">
+                        <div class="device-screen" style="background: linear-gradient(135deg, #89f7fe 0%, #66a6ff 100%);"></div>
+                    </div>
+                    <div class="device device-phone">
+                        <div class="device-screen" style="background: linear-gradient(135deg, #fddb92 0%, #d1fdff 100%);"></div>
+                    </div>
                 </div>
             </div>
         </div>
 
         <!-- Feature 4: Create profiles for kids -->
-        <div class="feature-row feature-row-reverse">
+        <div class="feature-row feature-row-reverse" id="my-list">
             <div class="feature-content">
                 <h2 class="feature-title">Create profiles for kids</h2>
                 <p class="feature-description">Send kids on adventures with their favorite characters in a space made just for them — free with your membership.</p>
             </div>
             <div class="feature-visual">
                 <div class="kids-container">
-                    <img src="https://assets.nflxext.com/ffe/siteui/vlv3/93da5d6e-8dd7-4ddd-a955-4c3e0f03a109/web/US-en-20240520-TRIFECTA-perspective_0a9702a9-c9c0-4bda-8e0b-d8d1b0f7f85b_large.jpg" alt="Kids" class="kids-image">
+                    <div class="kids-characters">
+                        <div class="kid-character" style="background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);">
+                            <svg viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="30" r="15" fill="rgba(255,255,255,0.3)"/>
+                                <ellipse cx="40" cy="65" rx="20" ry="15" fill="rgba(255,255,255,0.3)"/>
+                            </svg>
+                        </div>
+                        <div class="kid-character" style="background: linear-gradient(135deg, #a18cd1 0%, #fbc2eb 100%);">
+                            <svg viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="30" r="15" fill="rgba(255,255,255,0.3)"/>
+                                <ellipse cx="40" cy="65" rx="20" ry="15" fill="rgba(255,255,255,0.3)"/>
+                            </svg>
+                        </div>
+                        <div class="kid-character" style="background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);">
+                            <svg viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="30" r="15" fill="rgba(255,255,255,0.3)"/>
+                                <ellipse cx="40" cy="65" rx="20" ry="15" fill="rgba(255,255,255,0.3)"/>
+                            </svg>
+                        </div>
+                        <div class="kid-character" style="background: linear-gradient(135deg, #84fab0 0%, #8fd3f4 100%);">
+                            <svg viewBox="0 0 80 80" fill="none">
+                                <circle cx="40" cy="30" r="15" fill="rgba(255,255,255,0.3)"/>
+                                <ellipse cx="40" cy="65" rx="20" ry="15" fill="rgba(255,255,255,0.3)"/>
+                            </svg>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- FAQ Section -->
-    <section class="faq-section">
+    <section class="faq-section" id="browse-by-languages">
         <h2 class="section-title">Frequently Asked Questions</h2>
         <div class="faq-list">
             <div class="faq-item">
@@ -205,7 +261,7 @@
                     </svg>
                 </button>
                 <div class="faq-answer">
-                    <p>Netflix is flexible. There are no pesky contracts and no commitments. You can easily account your plan online in two clicks. If you decide you don't want to be a member anymore, just cancel. No cancellation fees – online or off.</p>
+                    <p>Netflix is flexible. There are no pesky contracts and no commitments. You can easily change your plan online in two clicks. If you decide you don't want to be a member anymore, just cancel. No cancellation fees – online or off.</p>
                 </div>
             </div>
             <div class="faq-item">
@@ -234,7 +290,7 @@
         </div>
         <div class="faq-cta">
             <p>Ready to watch? Enter your email to create or restart your membership.</p>
-            <form class="email-form">
+            <form class="email-form faq-form">
                 <div class="form-group">
                     <input type="email" id="email-faq" required placeholder=" ">
                     <label for="email-faq">Email address</label>
